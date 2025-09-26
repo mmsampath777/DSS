@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties for Color Palette */
+:root {
+  /* Brand */
+  --color-primary: #4F46E5;
+  --color-primary-500: #6366F1;
+  --color-primary-50: #EEF2FF;
+  --color-secondary: #2563EB;
+  --color-accent: #7C3AED;
+
+  /* Semantic */
+  --color-success: #16A34A;
+  --color-danger: #DC2626;
+  --color-warning: #D97706;
+  --color-info: #0891B2;
+
+  /* Surface & text */
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-border: #E5E7EB;
+  --text-primary: #111827;
+  --text-muted: #6B7280;
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-bg: #0F172A;
+  --color-surface: #0B1220;
+  --color-border: #1F2937;
+  --text-primary: #E6EEF8;
+  --color-primary: #6366F1;
+}
+
+/* Utility classes using CSS variables */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.btn-primary:hover { 
+  background: var(--color-primary-500); 
+}
+.card { 
+  background: var(--color-surface); 
+  border: 1px solid var(--color-border); 
+  color: var(--text-primary); 
+}
+.app-bg { 
+  background: var(--color-bg); 
+  color: var(--text-primary); 
+}
+
+/* Custom scrollbar for dark theme */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+
+  /* Root styles for theme */
+  .light {
+    color-scheme: light;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+/* Focus styles */
+@layer utilities {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+  }
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Code highlighting */
+code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+}
+
+pre code {
+  @apply bg-transparent p-0;
+}
