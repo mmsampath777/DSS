@@ -27,7 +27,7 @@ Generate keys, sign messages, verify signatures, and explore edge cases — all 
 - `Framer Motion` – For smooth animations
 
 ## Clone Repository
-git clone https://github.com/your-username/dss-virtual-lab.git
+[git clone https://github.com/your-username/dss-virtual-lab.git](https://github.com/mmsampath777/DSS.git)
 cd dss-virtual-lab
 ## Install packages
 npm install
